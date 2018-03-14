@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonitoreoComponent implements OnInit {
 
-  title: string = 'My first AGM project';
-  lat: number = 40.7786232;
-  lng: number = -74.0007019;
+
   constructor() { }
 
   ngOnInit() {

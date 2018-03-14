@@ -1,2 +1,41 @@
+<div>
+  <mat-tab-group (selectedTabChange)="cambio($event)" class="demo-tab-group">
+    <mat-tab  label="Monitoreo">
+      <div class="demo-tab-content">
+        <agm-map #mapMonitoreo [zoom]="13" [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+    </mat-tab>
+    <mat-tab label="Unidades">
+      <div class="demo-tab-content">
+        <agm-map  #mapUnidades [zoom]="13" [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+    </mat-tab>
+    <mat-tab label="Incidentes">
+      <div>
+        Incidentes
+      </div>
+    </mat-tab>
+    <mat-tab label="Estadisticas">
+      <div class="demo-tab-content">
+        holi xd
+      </div>
+    </mat-tab>
 
-<router-outlet></router-outlet>
+
+  </mat-tab-group>
+  <div class="leyenda-mapa">
+    <button mat-raised-button><img src="/assets/img/waze.png" alt="waze icon">Waze</button>
+    <button mat-raised-button><img src="/assets/img/markergreen.png" alt="marker green">Alerta Muni</button>
+    <button mat-raised-button><img src="/assets/img/basepoli.png" alt="marker green">Radio Policia</button>
+    <button mat-raised-button><img src="/assets/img/transito.png" alt="marker green">Radio Transito</button>
+    <button mat-raised-button><img src="../../../assets/img/serenazgo.png" alt="marker green">Radio Serenazgo</button>
+    <button mat-raised-button><img src="../../../assets/img/moto.png" alt="marker green">Motocicleta</button>
+    <button mat-raised-button><img src="../../../assets/img/camioneta.png" alt="marker green">Camioneta</button>
+    <button mat-raised-button><img src="../../../assets/img/ambulancia.png" alt="marker green">Ambulancia</button>
+  </div>
+
+</div>

@@ -14,6 +14,7 @@
 /Conecta2-cli/node_modules/
 /Conecta2/Scripts/NgApp/
 /Conecta2-cli/dist/
+/Conecta2-cli/.idea/
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
 # Include dlls if they're in the CommonReferences directory
