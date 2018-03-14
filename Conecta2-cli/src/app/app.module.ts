@@ -12,13 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './components/home/home.component';
 import { MonitoreoComponent } from './components/home/monitoreo/monitoreo.component';
 import { AgmCoreModule } from '@agm/core';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MonitoreoComponent
+    MonitoreoComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
