@@ -13,7 +13,7 @@
     <div *ngIf="flagChat">
         <div class="chatboxcontent">
             <mat-grid-list cols="3">
-                <mat-grid-tile colspan="2">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
                     <mat-tab-group>
                         <mat-tab label="chat 1">
                             <div class="chatboxmensajes">
@@ -35,8 +35,8 @@
                         </mat-tab>
                     </mat-tab-group>
                 </mat-grid-tile>
-                <mat-grid-tile colspan="1">
-                    <mat-tab-group>
+                <mat-grid-tile [colspan]="1" [rowspan]="2">
+                    <mat-tab-group style="height: 100%;">
                         <mat-tab label="Mensajes">
                             <div class="chatboxmensajes">
                                 <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SAD</span></div>
@@ -48,11 +48,14 @@
                         </mat-tab>
                     </mat-tab-group>
                 </mat-grid-tile>
+              <mat-grid-tile [colspan]="2" [rowspan]="1">
+                <div class="chatboxinput"><textarea class="chatboxtextarea" placeholder="Escribir mensaje aquí.."></textarea>
+                </div>
+              </mat-grid-tile>
             </mat-grid-list>
 
         </div>
 
-        <div class="chatboxinput"><textarea class="chatboxtextarea" placeholder="Escribir mensaje aquí.."></textarea>
-        </div>
+
     </div>
 </div>

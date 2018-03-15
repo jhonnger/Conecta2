@@ -62,7 +62,7 @@ li {
     font-family: arial, sans-serif;
     font-size: 13px;
     color: #333333;
-    height: 200px;
+    height: 320px;
     width: auto;
     overflow-y: auto;
     overflow-x: auto;
@@ -80,6 +80,7 @@ li {
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
+  width: 100%;
 }
 
 .chatboxmensajes {
