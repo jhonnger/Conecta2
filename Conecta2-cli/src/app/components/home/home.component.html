@@ -28,14 +28,21 @@
 
   </mat-tab-group>
   <div class="leyenda-mapa">
-    <button mat-raised-button><img src="/assets/img/waze.png" alt="waze icon">Waze</button>
-    <button mat-raised-button><img src="/assets/img/markergreen.png" alt="marker green">Alerta Muni</button>
-    <button mat-raised-button><img src="/assets/img/basepoli.png" alt="marker green">Radio Policia</button>
-    <button mat-raised-button><img src="/assets/img/transito.png" alt="marker green">Radio Transito</button>
-    <button mat-raised-button><img src="../../../assets/img/serenazgo.png" alt="marker green">Radio Serenazgo</button>
-    <button mat-raised-button><img src="../../../assets/img/moto.png" alt="marker green">Motocicleta</button>
-    <button mat-raised-button><img src="../../../assets/img/camioneta.png" alt="marker green">Camioneta</button>
-    <button mat-raised-button><img src="../../../assets/img/ambulancia.png" alt="marker green">Ambulancia</button>
+    <div style="position:relative;">
+
+      <button mat-raised-button><img src="/assets/img/waze.png" alt="waze icon">Waze</button>
+      <button mat-raised-button><img src="/assets/img/markergreen.png" alt="marker green">Alerta Muni</button>
+      <button mat-raised-button><img src="/assets/img/basepoli.png" alt="marker green">Radio Policia</button>
+      <button mat-raised-button><img src="/assets/img/transito.png" alt="marker green">Radio Transito</button>
+      <button mat-raised-button><img src="../../../assets/img/serenazgo.png" alt="marker green">Radio Serenazgo</button>
+      <button mat-raised-button><img src="../../../assets/img/moto.png" alt="marker green">Motocicleta</button>
+      <button mat-raised-button><img src="../../../assets/img/camioneta.png" alt="marker green">Camioneta</button>
+      <button mat-raised-button><img src="../../../assets/img/ambulancia.png" alt="marker green">Ambulancia</button>
+
+      <div class="btn-nuevo-caso">
+        <button (click)="openDialog()" mat-raised-button color="warn">Nuevo caso</button>
+      </div>
+    </div>
   </div>
 
 </div>

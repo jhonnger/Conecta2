@@ -19,3 +19,8 @@
   position: relative;
   left: -5px;
 }
+.btn-nuevo-caso{
+  position: absolute;
+  top: 0;
+  right: -150px;
+}

@@ -13,6 +13,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MonitoreoComponent } from './components/home/monitoreo/monitoreo.component';
 import { AgmCoreModule } from '@agm/core';
 import { ChatComponent } from './components/chat/chat.component';
+import { NuevocasoComponent } from './components/nuevocaso/nuevocaso.component';
+import {MatDialogModule} from '@angular/material';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -20,8 +23,9 @@ import { ChatComponent } from './components/chat/chat.component';
     AppComponent,
     HomeComponent,
     MonitoreoComponent,
-    ChatComponent
-  ],
+    ChatComponent,
+    NuevocasoComponent
+  ], entryComponents: [NuevocasoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +34,8 @@ import { ChatComponent } from './components/chat/chat.component';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
+    MatStepperModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD6l0Wq6cXBaDqF7I03FxvG-6-Py0Ib0F4',
       libraries: ['places']

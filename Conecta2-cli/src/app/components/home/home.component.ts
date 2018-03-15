@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AgmMap} from '@agm/core';
+import {MatDialog} from '@angular/material';
+import {NuevocasoComponent} from '../nuevocaso/nuevocaso.component';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +15,20 @@ export class HomeComponent implements OnInit {
 
   lat = 40.7786232;
   lng = -74.0007019;
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
+  openDialog(): void {
+    let dialogRef = this.dialog.open(NuevocasoComponent, {
+      width: '250px',
+      disableClose: true,
+      data: {  }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+  }
   ngOnInit() {
    // algo.triggerResize(true);
   }
