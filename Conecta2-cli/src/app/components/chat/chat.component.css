@@ -2,11 +2,35 @@ a {
     cursor: pointer;
 }
 
+li {
+    cursor: pointer;
+}
+
+.styleContact {
+    padding: 1px;
+    height: 260px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.styleChat {
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.styleUl {
+    padding-top: 15px;
+    padding-left: 25px;
+}
+
 .chatbox {
     position: fixed;
     position: expression("absolute");
-    width: 400px;
     display: none;
+    z-index: 1;
+    bottom: 0px;
+    right: 10px;
+    display: block;
 }
 
 .chatboxhead {
@@ -18,8 +42,8 @@ a {
 }
 
 .chatboxList {
-    background-color: #ffffff;
-    height: 37px;
+    background-color: #cfe1f1;
+    height: 20px;
     padding: 1px;
     color: #ffffff;
     border-right: 1px solid #cccccc;
@@ -33,10 +57,12 @@ a {
 }
 
 .chatboxcontent {
+    padding: 10px;
+    padding-top: 25px;
     font-family: arial, sans-serif;
     font-size: 13px;
     color: #333333;
-    height: 150px;
+    height: 200px;
     width: auto;
     overflow-y: auto;
     overflow-x: auto;
@@ -54,6 +80,10 @@ a {
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
+}
+
+.chatboxmensajes {
+    padding-top: 10px;
 }
 
 .chatboxtextarea {
