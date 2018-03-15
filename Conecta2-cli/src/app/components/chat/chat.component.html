@@ -1,7 +1,7 @@
 <!--Chat-->
 
 
-<div id="chatbox_johndoe" class="chatbox" style="z-index: 1;bottom: 0px; right: 10px; display: block;">
+<div id="chatbox_johndoe" class="chatbox" [ngStyle]="{'width.px': tam_chat, 'backgroundColor':'white'}">
     <div class="chatboxhead">
         <div class="chatboxtitle">Chat</div>
         <div class="chatboxoptions">
@@ -9,57 +9,49 @@
             <a (click)="minimizarChat()">-</a>
         </div><br clear="all">
     </div>
+    <!--If para Ocultar o minimiizar el chat-->
     <div *ngIf="flagChat">
-        <div class="chatboxList">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Disabled</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Sereno1</a>
-                        <a class="dropdown-item" href="#">Sereno2</a>
-                    </div>
-                </li>
-            </ul>
-            <br clear="all">
+        <div class="chatboxcontent">
+            <mat-grid-list cols="3">
+                <mat-grid-tile colspan="2">
+                    <mat-tab-group>
+                        <mat-tab label="chat 1">
+                            <div class="chatboxmensajes">
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">a:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SAD</span></div>
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">a:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SD</span></div>
+                                <div class="chatboxmessage"><span class="chatboxinfo">Sent at 3:0a2PM Mar 13th</span></div>
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">a:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">aaaaaaaaaaa</span></div>
+                                <div class="chatboxmessage"><span class="chatboxinfo">Sent at 5:37PM Mar 13th</span></div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="chat 2">
+                            <div class="chatboxmensajes">
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SAD</span></div>
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SD</span></div>
+                                <div class="chatboxmessage"><span class="chatboxinfo">Sent at 3:0a2PM Mar 13th</span></div>
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">aaaaaaaaaaa</span></div>
+                                <div class="chatboxmessage"><span class="chatboxinfo">Sent at 5:37PM Mar 13th</span></div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1">
+                    <mat-tab-group>
+                        <mat-tab label="Mensajes">
+                            <div class="chatboxmensajes">
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SAD</span></div>
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SD</span></div>
+                                <div class="chatboxmessage"><span class="chatboxinfo">Sent at 3:0a2PM Mar 13th</span></div>
+                                <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">aaaaaaaaaaa</span></div>
+                                <div class="chatboxmessage"><span class="chatboxinfo">Sent at 5:37PM Mar 13th</span></div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-grid-tile>
+            </mat-grid-list>
+
         </div>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="chatboxcontent">
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">a:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SAD</span></div>
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">a:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SD</span></div>
-                    <div class="chatboxmessage"><span class="chatboxinfo">Sent at 3:0a2PM Mar 13th</span></div>
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">a:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">aaaaaaaaaaa</span></div>
-                    <div class="chatboxmessage"><span class="chatboxinfo">Sent at 5:37PM Mar 13th</span></div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="chatboxcontent">
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SAD</span></div>
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SD</span></div>
-                    <div class="chatboxmessage"><span class="chatboxinfo">Sent at 3:02PM Mar 13th</span></div>
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">b:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">aaaaaaaaaaa</span></div>
-                    <div class="chatboxmessage"><span class="chatboxinfo">Sent at 5:37PM Mar 13th</span></div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                <div class="chatboxcontent">
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">c:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SAD</span></div>
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">c:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">SD</span></div>
-                    <div class="chatboxmessage"><span class="chatboxinfo">Sent at 3:02PM Mar 13th</span></div>
-                    <div class="chatboxmessage"><span class="chatboxmessagefrom">c:&nbsp;&nbsp;</span><span class="chatboxmessagecontent">aaaaaaaaaaa</span></div>
-                    <div class="chatboxmessage"><span class="chatboxinfo">Sent at 5:37PM Mar 13th</span></div>
-                </div>
-            </div>
-        </div>
+
         <div class="chatboxinput"><textarea class="chatboxtextarea" placeholder="Escribir mensaje aquí.."></textarea>
         </div>
     </div>
