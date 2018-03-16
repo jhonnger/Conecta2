@@ -16,10 +16,15 @@ import { MonitoreoComponent } from './components/home/monitoreo/monitoreo.compon
 import { AgmCoreModule } from '@agm/core';
 import { ChatComponent } from './components/chat/chat.component';
 import { NuevocasoComponent } from './components/nuevocaso/nuevocaso.component';
-import {MatDialogModule} from '@angular/material';
+import {MatDialogModule, MatNativeDateModule} from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CommonModule } from '@angular/common';
 import { ChatService } from './services/chat.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { Http } from '@angular/http';
 
 
@@ -35,6 +40,9 @@ import { Http } from '@angular/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
     MatTabsModule,
     MatCardModule,
     MatIconModule,
@@ -43,6 +51,10 @@ import { Http } from '@angular/http';
     MatStepperModule,
     MatGridListModule,
     CommonModule,
+    MatSelectModule,
+    AmazingTimePickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD6l0Wq6cXBaDqF7I03FxvG-6-Py0Ib0F4',

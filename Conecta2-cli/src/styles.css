@@ -10,3 +10,9 @@ agm-map {
 .mat-tab-label{
   width:25%;
 }
+.text-center{
+  text-align: center;
+}
+.full-width{
+  width: 100%;
+}

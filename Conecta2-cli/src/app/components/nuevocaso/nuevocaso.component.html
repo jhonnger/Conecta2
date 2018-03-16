@@ -1,3 +1,59 @@
-<p>
-  nuevocaso works!
-</p>
+<div>
+  <div class="text-center">Nuevo Incidente</div>
+  <mat-vertical-stepper [linear]="true" #stepper="matVerticalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>General</ng-template>
+        <mat-form-field class="full-width">
+          <mat-select formControlName="tipoIncidente" placeholder="Tipo de incidente">
+            <mat-option value="option">Robo</mat-option>
+            <mat-option value="option">Hurto</mat-option>
+          </mat-select>
+          <mat-error>Debe elegir un tipo de incidente</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput formControlName="horaIncidente"  placeholder="Hora de incidente" atp-time-picker />
+          <mat-error>Debe especificar la hora del incidente</mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput
+                 [matDatepicker]="picker"
+                 formControlName="fechaIncidente"
+                 [value]="date.value"
+                 [max]="date.value"
+                 placeholder="Fecha de incidente">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Ubicacion</ng-template>
+        <mat-form-field>
+          <mat-select placeholder="Tipo de incidente">
+            <mat-option value="option">Robo</mat-option>
+            <mat-option value="option">Hurto</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(NuevocasoComponent, {
-      width: '250px',
+      width: '650px',
       disableClose: true,
       data: {  }
     });
