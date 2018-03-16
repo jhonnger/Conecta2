@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
@@ -9,6 +10,7 @@ import { AppComponent } from './app.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './components/home/home.component';
@@ -21,6 +23,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { CommonModule } from '@angular/common';
 import { ChatService } from './services/chat.service';
 import { Http } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,6 +36,7 @@ import { Http } from '@angular/http';
   ], entryComponents: [NuevocasoComponent],
   imports: [
     BrowserModule,
+    FormsModule ,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
@@ -42,6 +46,7 @@ import { Http } from '@angular/http';
     MatDialogModule,
     MatStepperModule,
     MatGridListModule,
+    MatListModule,
     CommonModule,
     HttpModule,
     AgmCoreModule.forRoot({
