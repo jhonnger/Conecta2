@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
@@ -9,6 +10,7 @@ import { AppComponent } from './app.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './components/home/home.component';
@@ -20,12 +22,12 @@ import {MatDialogModule, MatNativeDateModule} from '@angular/material';
 import {MatStepperModule} from '@angular/material/stepper';
 import { CommonModule } from '@angular/common';
 import { ChatService } from './services/chat.service';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { Http } from '@angular/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { Http } from '@angular/http';
   ], entryComponents: [NuevocasoComponent],
   imports: [
     BrowserModule,
+    FormsModule ,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -50,6 +53,7 @@ import { Http } from '@angular/http';
     MatDialogModule,
     MatStepperModule,
     MatGridListModule,
+    MatListModule,
     CommonModule,
     MatSelectModule,
     AmazingTimePickerModule,

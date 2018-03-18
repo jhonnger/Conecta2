@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html, body{
-  margin:0;
-  padding:0;
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
+
 agm-map {
-  height: 700px;
-}
-.mat-tab-label{
-  width:25%;
+    height: 700px;
 }
 .text-center{
   text-align: center;
@@ -16,3 +16,8 @@ agm-map {
 .full-width{
   width: 100%;
 }
+
+.mat-tab-label {
+    width: 25%;
+}
+

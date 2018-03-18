@@ -1,0 +1,1 @@
+{"version":3,"file":"monitoreo.component.js","sourceRoot":"","sources":["monitoreo.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAAkD;AAOlD;IAGE;IAAgB,CAAC;IAEjB,qCAAQ,GAAR;IACA,CAAC;IANU,kBAAkB;QAL9B,gBAAS,CAAC;YACT,QAAQ,EAAE,eAAe;YACzB,WAAW,EAAE,4BAA4B;YACzC,SAAS,EAAE,CAAC,2BAA2B,CAAC;SACzC,CAAC;OACW,kBAAkB,CAQ9B;IAAD,yBAAC;CAAA,AARD,IAQC;AARY,gDAAkB"}

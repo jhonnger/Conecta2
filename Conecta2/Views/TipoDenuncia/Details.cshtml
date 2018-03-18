@@ -1,0 +1,66 @@
+﻿@model BDSql.tipo_denuncia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tipo_denuncia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario_mod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario_mod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fec_creacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fec_creacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_modificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_modificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_tipo_denuncia }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

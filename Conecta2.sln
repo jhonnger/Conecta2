@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conecta2", "Conecta2\Conect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conecta2-cli", "Conecta2-cli\Conecta2-cli.csproj", "{90D62D86-21FC-4E1E-8757-E598586A11DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSql", "BDSql\BDSql.csproj", "{21AAD0DE-9CB9-4CB4-9208-E76B8C9D4DDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{90D62D86-21FC-4E1E-8757-E598586A11DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90D62D86-21FC-4E1E-8757-E598586A11DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90D62D86-21FC-4E1E-8757-E598586A11DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21AAD0DE-9CB9-4CB4-9208-E76B8C9D4DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21AAD0DE-9CB9-4CB4-9208-E76B8C9D4DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21AAD0DE-9CB9-4CB4-9208-E76B8C9D4DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21AAD0DE-9CB9-4CB4-9208-E76B8C9D4DDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

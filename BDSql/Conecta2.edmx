@@ -1,0 +1,1410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="conectaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="comi_muni">
+          <Key>
+            <PropertyRef Name="id_comi_muni" />
+          </Key>
+          <Property Name="id_comi_muni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo_comi_muni" Type="int" Nullable="false" />
+          <Property Name="id_responsable" Type="int" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="int" Nullable="false" />
+          <Property Name="id_ubicacion" Type="int" Nullable="false" />
+          <Property Name="id_membresia" Type="int" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fec_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comi_muni_membresia">
+          <Key>
+            <PropertyRef Name="id_comi_muni_membresia" />
+          </Key>
+          <Property Name="id_comi_muni_membresia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_membresia" Type="int" Nullable="false" />
+          <Property Name="id_comi_muni" Type="int" Nullable="false" />
+          <Property Name="cant_meses" Type="int" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fec_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="configuracion">
+          <Key>
+            <PropertyRef Name="id_configuracion" />
+          </Key>
+          <Property Name="id_configuracion" Type="int" Nullable="false" />
+          <Property Name="color_primario" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="campos_reporte" Type="int" Nullable="false" />
+          <Property Name="id_comi_muni" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="denuncia">
+          <Key>
+            <PropertyRef Name="id_denuncia" />
+          </Key>
+          <Property Name="id_denuncia" Type="int" Nullable="false" />
+          <Property Name="id_tipo_denuncia" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_estado_denuncia" Type="int" Nullable="false" />
+          <Property Name="id_posicion_denuncia" Type="int" Nullable="false" />
+          <Property Name="id_posicion_usuario" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="int" Nullable="false" />
+          <Property Name="fec_denuncia" Type="datetime" Nullable="false" />
+          <Property Name="navegador" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dispositivo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fec_modificacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fec_creacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estado_denuncia">
+          <Key>
+            <PropertyRef Name="id_estado_denuncia" />
+          </Key>
+          <Property Name="id_estado_denuncia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fec_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="jurisdiccion">
+          <Key>
+            <PropertyRef Name="id_jurisdiccion" />
+          </Key>
+          <Property Name="id_jurisdiccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="membresia">
+          <Key>
+            <PropertyRef Name="id_membresia" />
+          </Key>
+          <Property Name="id_membresia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cant_usuarios" Type="int" Nullable="false" />
+          <Property Name="dias_duracion" Type="int" Nullable="false" />
+          <Property Name="costo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="limite_reportes_dia" Type="int" Nullable="false" />
+          <Property Name="limite_usuarios" Type="int" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fec_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_comi_muni_membresia" Type="int" Nullable="false" />
+          <Property Name="monto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="cod_transaccion" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="fec_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="patrullero">
+          <Key>
+            <PropertyRef Name="id_patrullero" />
+          </Key>
+          <Property Name="id_patrullero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="placa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
+          <Property Name="id_comi_muni" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="id_permiso" />
+          </Key>
+          <Property Name="id_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="num_doc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fec_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="punto_sector">
+          <Key>
+            <PropertyRef Name="id_punto_jurisdiccion" />
+          </Key>
+          <Property Name="id_punto_jurisdiccion" Type="int" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="int" Nullable="false" />
+          <Property Name="longitud" Type="decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="latitud" Type="decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="orden" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol_permiso">
+          <Key>
+            <PropertyRef Name="id_rol_permiso" />
+          </Key>
+          <Property Name="id_rol_permiso" Type="int" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+          <Property Name="id_permiso" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="seccion">
+          <Key>
+            <PropertyRef Name="id_seccion" />
+          </Key>
+          <Property Name="id_seccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_denuncia">
+          <Key>
+            <PropertyRef Name="id_tipo_denuncia" />
+          </Key>
+          <Property Name="id_tipo_denuncia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_usuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ubicacion">
+          <Key>
+            <PropertyRef Name="id_ubicacion" />
+          </Key>
+          <Property Name="id_ubicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="latitud" Type="decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="longitud" Type="decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="foto_perfil" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_usuario" Type="int" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="int" Nullable="false" />
+          <Property Name="id_persona" Type="int" Nullable="false" />
+          <Property Name="fec_creacion" Type="datetime" Nullable="false" />
+          <Property Name="fec_modificacion" Type="datetime" Nullable="false" />
+          <Property Name="usuario_mod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_comi_muni_jurisdiccion">
+          <End Role="jurisdiccion" Type="Self.jurisdiccion" Multiplicity="1" />
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jurisdiccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Principal>
+            <Dependent Role="comi_muni">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comi_muni_membresia_comi_muni">
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="1" />
+          <End Role="comi_muni_membresia" Type="Self.comi_muni_membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni">
+              <PropertyRef Name="id_comi_muni" />
+            </Principal>
+            <Dependent Role="comi_muni_membresia">
+              <PropertyRef Name="id_comi_muni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comi_muni_membresia_membresia">
+          <End Role="membresia" Type="Self.membresia" Multiplicity="1" />
+          <End Role="comi_muni_membresia" Type="Self.comi_muni_membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="membresia">
+              <PropertyRef Name="id_membresia" />
+            </Principal>
+            <Dependent Role="comi_muni_membresia">
+              <PropertyRef Name="id_membresia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comi_muni_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="comi_muni">
+              <PropertyRef Name="id_responsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_configuracion_comi_muni">
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="1" />
+          <End Role="configuracion" Type="Self.configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni">
+              <PropertyRef Name="id_comi_muni" />
+            </Principal>
+            <Dependent Role="configuracion">
+              <PropertyRef Name="id_comi_muni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_estado_denuncia">
+          <End Role="estado_denuncia" Type="Self.estado_denuncia" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_denuncia">
+              <PropertyRef Name="id_estado_denuncia" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_estado_denuncia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_tipo_denuncia">
+          <End Role="tipo_denuncia" Type="Self.tipo_denuncia" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_denuncia">
+              <PropertyRef Name="id_tipo_denuncia" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_tipo_denuncia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_ubicacion">
+          <End Role="ubicacion" Type="Self.ubicacion" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ubicacion">
+              <PropertyRef Name="id_ubicacion" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_posicion_denuncia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_ubicacion1">
+          <End Role="ubicacion" Type="Self.ubicacion" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ubicacion">
+              <PropertyRef Name="id_ubicacion" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_posicion_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pago_comi_muni_membresia">
+          <End Role="comi_muni_membresia" Type="Self.comi_muni_membresia" Multiplicity="1" />
+          <End Role="pago" Type="Self.pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni_membresia">
+              <PropertyRef Name="id_comi_muni_membresia" />
+            </Principal>
+            <Dependent Role="pago">
+              <PropertyRef Name="id_comi_muni_membresia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patrullero_comi_muni">
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="1" />
+          <End Role="patrullero" Type="Self.patrullero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni">
+              <PropertyRef Name="id_comi_muni" />
+            </Principal>
+            <Dependent Role="patrullero">
+              <PropertyRef Name="id_comi_muni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patrullero_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="patrullero" Type="Self.patrullero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="patrullero">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_punto_sector_jurisdiccion">
+          <End Role="jurisdiccion" Type="Self.jurisdiccion" Multiplicity="1" />
+          <End Role="punto_sector" Type="Self.punto_sector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jurisdiccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Principal>
+            <Dependent Role="punto_sector">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rol_permiso_permiso">
+          <End Role="permiso" Type="Self.permiso" Multiplicity="1" />
+          <End Role="rol_permiso" Type="Self.rol_permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permiso">
+              <PropertyRef Name="id_permiso" />
+            </Principal>
+            <Dependent Role="rol_permiso">
+              <PropertyRef Name="id_permiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rol_permiso_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="rol_permiso" Type="Self.rol_permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="rol_permiso">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_seccion_jurisdiccion">
+          <End Role="jurisdiccion" Type="Self.jurisdiccion" Multiplicity="1" />
+          <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jurisdiccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Principal>
+            <Dependent Role="seccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tipo_usuario_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="tipo_usuario">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_tipo_usuario">
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="conectaDBModelStoreContainer">
+          <EntitySet Name="comi_muni" EntityType="Self.comi_muni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comi_muni_membresia" EntityType="Self.comi_muni_membresia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="configuracion" EntityType="Self.configuracion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="denuncia" EntityType="Self.denuncia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_denuncia" EntityType="Self.estado_denuncia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jurisdiccion" EntityType="Self.jurisdiccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="membresia" EntityType="Self.membresia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pago" EntityType="Self.pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patrullero" EntityType="Self.patrullero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="permiso" EntityType="Self.permiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="punto_sector" EntityType="Self.punto_sector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol_permiso" EntityType="Self.rol_permiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="seccion" EntityType="Self.seccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_denuncia" EntityType="Self.tipo_denuncia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ubicacion" EntityType="Self.ubicacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_comi_muni_jurisdiccion" Association="Self.FK_comi_muni_jurisdiccion">
+            <End Role="jurisdiccion" EntitySet="jurisdiccion" />
+            <End Role="comi_muni" EntitySet="comi_muni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comi_muni_membresia_comi_muni" Association="Self.FK_comi_muni_membresia_comi_muni">
+            <End Role="comi_muni" EntitySet="comi_muni" />
+            <End Role="comi_muni_membresia" EntitySet="comi_muni_membresia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comi_muni_membresia_membresia" Association="Self.FK_comi_muni_membresia_membresia">
+            <End Role="membresia" EntitySet="membresia" />
+            <End Role="comi_muni_membresia" EntitySet="comi_muni_membresia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comi_muni_persona" Association="Self.FK_comi_muni_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="comi_muni" EntitySet="comi_muni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_configuracion_comi_muni" Association="Self.FK_configuracion_comi_muni">
+            <End Role="comi_muni" EntitySet="comi_muni" />
+            <End Role="configuracion" EntitySet="configuracion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_estado_denuncia" Association="Self.FK_denuncia_estado_denuncia">
+            <End Role="estado_denuncia" EntitySet="estado_denuncia" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_tipo_denuncia" Association="Self.FK_denuncia_tipo_denuncia">
+            <End Role="tipo_denuncia" EntitySet="tipo_denuncia" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_ubicacion" Association="Self.FK_denuncia_ubicacion">
+            <End Role="ubicacion" EntitySet="ubicacion" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_ubicacion1" Association="Self.FK_denuncia_ubicacion1">
+            <End Role="ubicacion" EntitySet="ubicacion" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_usuario" Association="Self.FK_denuncia_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pago_comi_muni_membresia" Association="Self.FK_pago_comi_muni_membresia">
+            <End Role="comi_muni_membresia" EntitySet="comi_muni_membresia" />
+            <End Role="pago" EntitySet="pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patrullero_comi_muni" Association="Self.FK_patrullero_comi_muni">
+            <End Role="comi_muni" EntitySet="comi_muni" />
+            <End Role="patrullero" EntitySet="patrullero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patrullero_persona" Association="Self.FK_patrullero_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="patrullero" EntitySet="patrullero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_punto_sector_jurisdiccion" Association="Self.FK_punto_sector_jurisdiccion">
+            <End Role="jurisdiccion" EntitySet="jurisdiccion" />
+            <End Role="punto_sector" EntitySet="punto_sector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rol_permiso_permiso" Association="Self.FK_rol_permiso_permiso">
+            <End Role="permiso" EntitySet="permiso" />
+            <End Role="rol_permiso" EntitySet="rol_permiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rol_permiso_rol" Association="Self.FK_rol_permiso_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="rol_permiso" EntitySet="rol_permiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_seccion_jurisdiccion" Association="Self.FK_seccion_jurisdiccion">
+            <End Role="jurisdiccion" EntitySet="jurisdiccion" />
+            <End Role="seccion" EntitySet="seccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tipo_usuario_rol" Association="Self.FK_tipo_usuario_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_persona" Association="Self.FK_usuario_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_tipo_usuario" Association="Self.FK_usuario_tipo_usuario">
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="conectaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="comi_muni">
+          <Key>
+            <PropertyRef Name="id_comi_muni" />
+          </Key>
+          <Property Name="id_comi_muni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipo_comi_muni" Type="Int32" Nullable="false" />
+          <Property Name="id_responsable" Type="Int32" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="Int32" Nullable="false" />
+          <Property Name="id_ubicacion" Type="Int32" Nullable="false" />
+          <Property Name="id_membresia" Type="Int32" Nullable="false" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="jurisdiccion" Relationship="Self.FK_comi_muni_jurisdiccion" FromRole="comi_muni" ToRole="jurisdiccion" />
+          <NavigationProperty Name="comi_muni_membresia" Relationship="Self.FK_comi_muni_membresia_comi_muni" FromRole="comi_muni" ToRole="comi_muni_membresia" />
+          <NavigationProperty Name="persona" Relationship="Self.FK_comi_muni_persona" FromRole="comi_muni" ToRole="persona" />
+          <NavigationProperty Name="configuracion" Relationship="Self.FK_configuracion_comi_muni" FromRole="comi_muni" ToRole="configuracion" />
+          <NavigationProperty Name="patrullero" Relationship="Self.FK_patrullero_comi_muni" FromRole="comi_muni" ToRole="patrullero" />
+        </EntityType>
+        <EntityType Name="comi_muni_membresia">
+          <Key>
+            <PropertyRef Name="id_comi_muni_membresia" />
+          </Key>
+          <Property Name="id_comi_muni_membresia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_membresia" Type="Int32" Nullable="false" />
+          <Property Name="id_comi_muni" Type="Int32" Nullable="false" />
+          <Property Name="cant_meses" Type="Int32" Nullable="false" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="comi_muni" Relationship="Self.FK_comi_muni_membresia_comi_muni" FromRole="comi_muni_membresia" ToRole="comi_muni" />
+          <NavigationProperty Name="membresia" Relationship="Self.FK_comi_muni_membresia_membresia" FromRole="comi_muni_membresia" ToRole="membresia" />
+          <NavigationProperty Name="pago" Relationship="Self.FK_pago_comi_muni_membresia" FromRole="comi_muni_membresia" ToRole="pago" />
+        </EntityType>
+        <EntityType Name="configuracion">
+          <Key>
+            <PropertyRef Name="id_configuracion" />
+          </Key>
+          <Property Name="id_configuracion" Type="Int32" Nullable="false" />
+          <Property Name="color_primario" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="campos_reporte" Type="Int32" Nullable="false" />
+          <Property Name="id_comi_muni" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comi_muni" Relationship="Self.FK_configuracion_comi_muni" FromRole="configuracion" ToRole="comi_muni" />
+        </EntityType>
+        <EntityType Name="denuncia">
+          <Key>
+            <PropertyRef Name="id_denuncia" />
+          </Key>
+          <Property Name="id_denuncia" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_denuncia" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_estado_denuncia" Type="Int32" Nullable="false" />
+          <Property Name="id_posicion_denuncia" Type="Int32" Nullable="false" />
+          <Property Name="id_posicion_usuario" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="Int32" Nullable="false" />
+          <Property Name="fec_denuncia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="navegador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dispositivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario_mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fec_modificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fec_creacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="estado_denuncia" Relationship="Self.FK_denuncia_estado_denuncia" FromRole="denuncia" ToRole="estado_denuncia" />
+          <NavigationProperty Name="tipo_denuncia" Relationship="Self.FK_denuncia_tipo_denuncia" FromRole="denuncia" ToRole="tipo_denuncia" />
+          <NavigationProperty Name="ubicacion" Relationship="Self.FK_denuncia_ubicacion" FromRole="denuncia" ToRole="ubicacion" />
+          <NavigationProperty Name="ubicacion1" Relationship="Self.FK_denuncia_ubicacion1" FromRole="denuncia" ToRole="ubicacion" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_denuncia_usuario" FromRole="denuncia" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="estado_denuncia">
+          <Key>
+            <PropertyRef Name="id_estado_denuncia" />
+          </Key>
+          <Property Name="id_estado_denuncia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario_mod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="denuncia" Relationship="Self.FK_denuncia_estado_denuncia" FromRole="estado_denuncia" ToRole="denuncia" />
+        </EntityType>
+        <EntityType Name="jurisdiccion">
+          <Key>
+            <PropertyRef Name="id_jurisdiccion" />
+          </Key>
+          <Property Name="id_jurisdiccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="comi_muni" Relationship="Self.FK_comi_muni_jurisdiccion" FromRole="jurisdiccion" ToRole="comi_muni" />
+          <NavigationProperty Name="punto_sector" Relationship="Self.FK_punto_sector_jurisdiccion" FromRole="jurisdiccion" ToRole="punto_sector" />
+          <NavigationProperty Name="seccion" Relationship="Self.FK_seccion_jurisdiccion" FromRole="jurisdiccion" ToRole="seccion" />
+        </EntityType>
+        <EntityType Name="membresia">
+          <Key>
+            <PropertyRef Name="id_membresia" />
+          </Key>
+          <Property Name="id_membresia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cant_usuarios" Type="Int32" Nullable="false" />
+          <Property Name="dias_duracion" Type="Int32" Nullable="false" />
+          <Property Name="costo" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="limite_reportes_dia" Type="Int32" Nullable="false" />
+          <Property Name="limite_usuarios" Type="Int32" Nullable="false" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="comi_muni_membresia" Relationship="Self.FK_comi_muni_membresia_membresia" FromRole="membresia" ToRole="comi_muni_membresia" />
+        </EntityType>
+        <EntityType Name="pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_comi_muni_membresia" Type="Int32" Nullable="false" />
+          <Property Name="monto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="cod_transaccion" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="fec_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="comi_muni_membresia" Relationship="Self.FK_pago_comi_muni_membresia" FromRole="pago" ToRole="comi_muni_membresia" />
+        </EntityType>
+        <EntityType Name="patrullero">
+          <Key>
+            <PropertyRef Name="id_patrullero" />
+          </Key>
+          <Property Name="id_patrullero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="id_comi_muni" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comi_muni" Relationship="Self.FK_patrullero_comi_muni" FromRole="patrullero" ToRole="comi_muni" />
+          <NavigationProperty Name="persona" Relationship="Self.FK_patrullero_persona" FromRole="patrullero" ToRole="persona" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="id_permiso" />
+          </Key>
+          <Property Name="id_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="rol_permiso" Relationship="Self.FK_rol_permiso_permiso" FromRole="permiso" ToRole="rol_permiso" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_doc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="comi_muni" Relationship="Self.FK_comi_muni_persona" FromRole="persona" ToRole="comi_muni" />
+          <NavigationProperty Name="patrullero" Relationship="Self.FK_patrullero_persona" FromRole="persona" ToRole="patrullero" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_persona" FromRole="persona" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="punto_sector">
+          <Key>
+            <PropertyRef Name="id_punto_jurisdiccion" />
+          </Key>
+          <Property Name="id_punto_jurisdiccion" Type="Int32" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="Int32" Nullable="false" />
+          <Property Name="longitud" Type="Decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="latitud" Type="Decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="orden" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="jurisdiccion" Relationship="Self.FK_punto_sector_jurisdiccion" FromRole="punto_sector" ToRole="jurisdiccion" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="rol_permiso" Relationship="Self.FK_rol_permiso_rol" FromRole="rol" ToRole="rol_permiso" />
+          <NavigationProperty Name="tipo_usuario" Relationship="Self.FK_tipo_usuario_rol" FromRole="rol" ToRole="tipo_usuario" />
+        </EntityType>
+        <EntityType Name="rol_permiso">
+          <Key>
+            <PropertyRef Name="id_rol_permiso" />
+          </Key>
+          <Property Name="id_rol_permiso" Type="Int32" Nullable="false" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <Property Name="id_permiso" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="permiso" Relationship="Self.FK_rol_permiso_permiso" FromRole="rol_permiso" ToRole="permiso" />
+          <NavigationProperty Name="rol" Relationship="Self.FK_rol_permiso_rol" FromRole="rol_permiso" ToRole="rol" />
+        </EntityType>
+        <EntityType Name="seccion">
+          <Key>
+            <PropertyRef Name="id_seccion" />
+          </Key>
+          <Property Name="id_seccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="jurisdiccion" Relationship="Self.FK_seccion_jurisdiccion" FromRole="seccion" ToRole="jurisdiccion" />
+        </EntityType>
+        <EntityType Name="tipo_denuncia">
+          <Key>
+            <PropertyRef Name="id_tipo_denuncia" />
+          </Key>
+          <Property Name="id_tipo_denuncia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario_mod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="denuncia" Relationship="Self.FK_denuncia_tipo_denuncia" FromRole="tipo_denuncia" ToRole="denuncia" />
+        </EntityType>
+        <EntityType Name="tipo_usuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="rol" Relationship="Self.FK_tipo_usuario_rol" FromRole="tipo_usuario" ToRole="rol" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_tipo_usuario" FromRole="tipo_usuario" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="ubicacion">
+          <Key>
+            <PropertyRef Name="id_ubicacion" />
+          </Key>
+          <Property Name="id_ubicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="latitud" Type="Decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="longitud" Type="Decimal" Precision="10" Scale="6" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="denuncia" Relationship="Self.FK_denuncia_ubicacion" FromRole="ubicacion" ToRole="denuncia" />
+          <NavigationProperty Name="denuncia1" Relationship="Self.FK_denuncia_ubicacion1" FromRole="ubicacion" ToRole="denuncia" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foto_perfil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_jurisdiccion" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="fec_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fec_modificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="denuncia" Relationship="Self.FK_denuncia_usuario" FromRole="usuario" ToRole="denuncia" />
+          <NavigationProperty Name="persona" Relationship="Self.FK_usuario_persona" FromRole="usuario" ToRole="persona" />
+          <NavigationProperty Name="tipo_usuario1" Relationship="Self.FK_usuario_tipo_usuario" FromRole="usuario" ToRole="tipo_usuario" />
+        </EntityType>
+        <Association Name="FK_comi_muni_jurisdiccion">
+          <End Role="jurisdiccion" Type="Self.jurisdiccion" Multiplicity="1" />
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jurisdiccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Principal>
+            <Dependent Role="comi_muni">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comi_muni_membresia_comi_muni">
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="1" />
+          <End Role="comi_muni_membresia" Type="Self.comi_muni_membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni">
+              <PropertyRef Name="id_comi_muni" />
+            </Principal>
+            <Dependent Role="comi_muni_membresia">
+              <PropertyRef Name="id_comi_muni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comi_muni_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="comi_muni">
+              <PropertyRef Name="id_responsable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_configuracion_comi_muni">
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="1" />
+          <End Role="configuracion" Type="Self.configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni">
+              <PropertyRef Name="id_comi_muni" />
+            </Principal>
+            <Dependent Role="configuracion">
+              <PropertyRef Name="id_comi_muni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patrullero_comi_muni">
+          <End Role="comi_muni" Type="Self.comi_muni" Multiplicity="1" />
+          <End Role="patrullero" Type="Self.patrullero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni">
+              <PropertyRef Name="id_comi_muni" />
+            </Principal>
+            <Dependent Role="patrullero">
+              <PropertyRef Name="id_comi_muni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comi_muni_membresia_membresia">
+          <End Role="membresia" Type="Self.membresia" Multiplicity="1" />
+          <End Role="comi_muni_membresia" Type="Self.comi_muni_membresia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="membresia">
+              <PropertyRef Name="id_membresia" />
+            </Principal>
+            <Dependent Role="comi_muni_membresia">
+              <PropertyRef Name="id_membresia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pago_comi_muni_membresia">
+          <End Role="comi_muni_membresia" Type="Self.comi_muni_membresia" Multiplicity="1" />
+          <End Role="pago" Type="Self.pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comi_muni_membresia">
+              <PropertyRef Name="id_comi_muni_membresia" />
+            </Principal>
+            <Dependent Role="pago">
+              <PropertyRef Name="id_comi_muni_membresia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_estado_denuncia">
+          <End Role="estado_denuncia" Type="Self.estado_denuncia" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_denuncia">
+              <PropertyRef Name="id_estado_denuncia" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_estado_denuncia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_tipo_denuncia">
+          <End Role="tipo_denuncia" Type="Self.tipo_denuncia" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_denuncia">
+              <PropertyRef Name="id_tipo_denuncia" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_tipo_denuncia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_ubicacion">
+          <End Role="ubicacion" Type="Self.ubicacion" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ubicacion">
+              <PropertyRef Name="id_ubicacion" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_posicion_denuncia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_ubicacion1">
+          <End Role="ubicacion" Type="Self.ubicacion" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ubicacion">
+              <PropertyRef Name="id_ubicacion" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_posicion_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_denuncia_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="denuncia">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_punto_sector_jurisdiccion">
+          <End Role="jurisdiccion" Type="Self.jurisdiccion" Multiplicity="1" />
+          <End Role="punto_sector" Type="Self.punto_sector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jurisdiccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Principal>
+            <Dependent Role="punto_sector">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_seccion_jurisdiccion">
+          <End Role="jurisdiccion" Type="Self.jurisdiccion" Multiplicity="1" />
+          <End Role="seccion" Type="Self.seccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jurisdiccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Principal>
+            <Dependent Role="seccion">
+              <PropertyRef Name="id_jurisdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_patrullero_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="patrullero" Type="Self.patrullero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="patrullero">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rol_permiso_permiso">
+          <End Role="permiso" Type="Self.permiso" Multiplicity="1" />
+          <End Role="rol_permiso" Type="Self.rol_permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permiso">
+              <PropertyRef Name="id_permiso" />
+            </Principal>
+            <Dependent Role="rol_permiso">
+              <PropertyRef Name="id_permiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rol_permiso_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="rol_permiso" Type="Self.rol_permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="rol_permiso">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tipo_usuario_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="tipo_usuario">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_tipo_usuario">
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="conectaDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="comi_muni" EntityType="Self.comi_muni" />
+          <EntitySet Name="comi_muni_membresia" EntityType="Self.comi_muni_membresia" />
+          <EntitySet Name="configuracion" EntityType="Self.configuracion" />
+          <EntitySet Name="denuncia" EntityType="Self.denuncia" />
+          <EntitySet Name="estado_denuncia" EntityType="Self.estado_denuncia" />
+          <EntitySet Name="jurisdiccion" EntityType="Self.jurisdiccion" />
+          <EntitySet Name="membresia" EntityType="Self.membresia" />
+          <EntitySet Name="pago" EntityType="Self.pago" />
+          <EntitySet Name="patrullero" EntityType="Self.patrullero" />
+          <EntitySet Name="permiso" EntityType="Self.permiso" />
+          <EntitySet Name="persona" EntityType="Self.persona" />
+          <EntitySet Name="punto_sector" EntityType="Self.punto_sector" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="rol_permiso" EntityType="Self.rol_permiso" />
+          <EntitySet Name="seccion" EntityType="Self.seccion" />
+          <EntitySet Name="tipo_denuncia" EntityType="Self.tipo_denuncia" />
+          <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" />
+          <EntitySet Name="ubicacion" EntityType="Self.ubicacion" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="FK_comi_muni_jurisdiccion" Association="Self.FK_comi_muni_jurisdiccion">
+            <End Role="jurisdiccion" EntitySet="jurisdiccion" />
+            <End Role="comi_muni" EntitySet="comi_muni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comi_muni_membresia_comi_muni" Association="Self.FK_comi_muni_membresia_comi_muni">
+            <End Role="comi_muni" EntitySet="comi_muni" />
+            <End Role="comi_muni_membresia" EntitySet="comi_muni_membresia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comi_muni_persona" Association="Self.FK_comi_muni_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="comi_muni" EntitySet="comi_muni" />
+          </AssociationSet>
+          <AssociationSet Name="FK_configuracion_comi_muni" Association="Self.FK_configuracion_comi_muni">
+            <End Role="comi_muni" EntitySet="comi_muni" />
+            <End Role="configuracion" EntitySet="configuracion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patrullero_comi_muni" Association="Self.FK_patrullero_comi_muni">
+            <End Role="comi_muni" EntitySet="comi_muni" />
+            <End Role="patrullero" EntitySet="patrullero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comi_muni_membresia_membresia" Association="Self.FK_comi_muni_membresia_membresia">
+            <End Role="membresia" EntitySet="membresia" />
+            <End Role="comi_muni_membresia" EntitySet="comi_muni_membresia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pago_comi_muni_membresia" Association="Self.FK_pago_comi_muni_membresia">
+            <End Role="comi_muni_membresia" EntitySet="comi_muni_membresia" />
+            <End Role="pago" EntitySet="pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_estado_denuncia" Association="Self.FK_denuncia_estado_denuncia">
+            <End Role="estado_denuncia" EntitySet="estado_denuncia" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_tipo_denuncia" Association="Self.FK_denuncia_tipo_denuncia">
+            <End Role="tipo_denuncia" EntitySet="tipo_denuncia" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_ubicacion" Association="Self.FK_denuncia_ubicacion">
+            <End Role="ubicacion" EntitySet="ubicacion" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_ubicacion1" Association="Self.FK_denuncia_ubicacion1">
+            <End Role="ubicacion" EntitySet="ubicacion" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_denuncia_usuario" Association="Self.FK_denuncia_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="denuncia" EntitySet="denuncia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_punto_sector_jurisdiccion" Association="Self.FK_punto_sector_jurisdiccion">
+            <End Role="jurisdiccion" EntitySet="jurisdiccion" />
+            <End Role="punto_sector" EntitySet="punto_sector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_seccion_jurisdiccion" Association="Self.FK_seccion_jurisdiccion">
+            <End Role="jurisdiccion" EntitySet="jurisdiccion" />
+            <End Role="seccion" EntitySet="seccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_patrullero_persona" Association="Self.FK_patrullero_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="patrullero" EntitySet="patrullero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rol_permiso_permiso" Association="Self.FK_rol_permiso_permiso">
+            <End Role="permiso" EntitySet="permiso" />
+            <End Role="rol_permiso" EntitySet="rol_permiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_persona" Association="Self.FK_usuario_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rol_permiso_rol" Association="Self.FK_rol_permiso_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="rol_permiso" EntitySet="rol_permiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tipo_usuario_rol" Association="Self.FK_tipo_usuario_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_tipo_usuario" Association="Self.FK_usuario_tipo_usuario">
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="conectaDBModelStoreContainer" CdmEntityContainer="conectaDBEntities">
+          <EntitySetMapping Name="comi_muni">
+            <EntityTypeMapping TypeName="conectaDBModel.comi_muni">
+              <MappingFragment StoreEntitySet="comi_muni">
+                <ScalarProperty Name="id_comi_muni" ColumnName="id_comi_muni" />
+                <ScalarProperty Name="id_tipo_comi_muni" ColumnName="id_tipo_comi_muni" />
+                <ScalarProperty Name="id_responsable" ColumnName="id_responsable" />
+                <ScalarProperty Name="id_jurisdiccion" ColumnName="id_jurisdiccion" />
+                <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
+                <ScalarProperty Name="id_membresia" ColumnName="id_membresia" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comi_muni_membresia">
+            <EntityTypeMapping TypeName="conectaDBModel.comi_muni_membresia">
+              <MappingFragment StoreEntitySet="comi_muni_membresia">
+                <ScalarProperty Name="id_comi_muni_membresia" ColumnName="id_comi_muni_membresia" />
+                <ScalarProperty Name="id_membresia" ColumnName="id_membresia" />
+                <ScalarProperty Name="id_comi_muni" ColumnName="id_comi_muni" />
+                <ScalarProperty Name="cant_meses" ColumnName="cant_meses" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="configuracion">
+            <EntityTypeMapping TypeName="conectaDBModel.configuracion">
+              <MappingFragment StoreEntitySet="configuracion">
+                <ScalarProperty Name="id_configuracion" ColumnName="id_configuracion" />
+                <ScalarProperty Name="color_primario" ColumnName="color_primario" />
+                <ScalarProperty Name="campos_reporte" ColumnName="campos_reporte" />
+                <ScalarProperty Name="id_comi_muni" ColumnName="id_comi_muni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="denuncia">
+            <EntityTypeMapping TypeName="conectaDBModel.denuncia">
+              <MappingFragment StoreEntitySet="denuncia">
+                <ScalarProperty Name="id_denuncia" ColumnName="id_denuncia" />
+                <ScalarProperty Name="id_tipo_denuncia" ColumnName="id_tipo_denuncia" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_estado_denuncia" ColumnName="id_estado_denuncia" />
+                <ScalarProperty Name="id_posicion_denuncia" ColumnName="id_posicion_denuncia" />
+                <ScalarProperty Name="id_posicion_usuario" ColumnName="id_posicion_usuario" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fec_denuncia" ColumnName="fec_denuncia" />
+                <ScalarProperty Name="navegador" ColumnName="navegador" />
+                <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_denuncia">
+            <EntityTypeMapping TypeName="conectaDBModel.estado_denuncia">
+              <MappingFragment StoreEntitySet="estado_denuncia">
+                <ScalarProperty Name="id_estado_denuncia" ColumnName="id_estado_denuncia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jurisdiccion">
+            <EntityTypeMapping TypeName="conectaDBModel.jurisdiccion">
+              <MappingFragment StoreEntitySet="jurisdiccion">
+                <ScalarProperty Name="id_jurisdiccion" ColumnName="id_jurisdiccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="membresia">
+            <EntityTypeMapping TypeName="conectaDBModel.membresia">
+              <MappingFragment StoreEntitySet="membresia">
+                <ScalarProperty Name="id_membresia" ColumnName="id_membresia" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="cant_usuarios" ColumnName="cant_usuarios" />
+                <ScalarProperty Name="dias_duracion" ColumnName="dias_duracion" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="limite_reportes_dia" ColumnName="limite_reportes_dia" />
+                <ScalarProperty Name="limite_usuarios" ColumnName="limite_usuarios" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pago">
+            <EntityTypeMapping TypeName="conectaDBModel.pago">
+              <MappingFragment StoreEntitySet="pago">
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+                <ScalarProperty Name="id_comi_muni_membresia" ColumnName="id_comi_muni_membresia" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="cod_transaccion" ColumnName="cod_transaccion" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patrullero">
+            <EntityTypeMapping TypeName="conectaDBModel.patrullero">
+              <MappingFragment StoreEntitySet="patrullero">
+                <ScalarProperty Name="id_patrullero" ColumnName="id_patrullero" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="id_comi_muni" ColumnName="id_comi_muni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="permiso">
+            <EntityTypeMapping TypeName="conectaDBModel.permiso">
+              <MappingFragment StoreEntitySet="permiso">
+                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persona">
+            <EntityTypeMapping TypeName="conectaDBModel.persona">
+              <MappingFragment StoreEntitySet="persona">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="num_doc" ColumnName="num_doc" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="punto_sector">
+            <EntityTypeMapping TypeName="conectaDBModel.punto_sector">
+              <MappingFragment StoreEntitySet="punto_sector">
+                <ScalarProperty Name="id_punto_jurisdiccion" ColumnName="id_punto_jurisdiccion" />
+                <ScalarProperty Name="id_jurisdiccion" ColumnName="id_jurisdiccion" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="conectaDBModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol_permiso">
+            <EntityTypeMapping TypeName="conectaDBModel.rol_permiso">
+              <MappingFragment StoreEntitySet="rol_permiso">
+                <ScalarProperty Name="id_rol_permiso" ColumnName="id_rol_permiso" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seccion">
+            <EntityTypeMapping TypeName="conectaDBModel.seccion">
+              <MappingFragment StoreEntitySet="seccion">
+                <ScalarProperty Name="id_seccion" ColumnName="id_seccion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_jurisdiccion" ColumnName="id_jurisdiccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_denuncia">
+            <EntityTypeMapping TypeName="conectaDBModel.tipo_denuncia">
+              <MappingFragment StoreEntitySet="tipo_denuncia">
+                <ScalarProperty Name="id_tipo_denuncia" ColumnName="id_tipo_denuncia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_usuario">
+            <EntityTypeMapping TypeName="conectaDBModel.tipo_usuario">
+              <MappingFragment StoreEntitySet="tipo_usuario">
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ubicacion">
+            <EntityTypeMapping TypeName="conectaDBModel.ubicacion">
+              <MappingFragment StoreEntitySet="ubicacion">
+                <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="conectaDBModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="foto_perfil" ColumnName="foto_perfil" />
+                <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+                <ScalarProperty Name="id_jurisdiccion" ColumnName="id_jurisdiccion" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="fec_creacion" ColumnName="fec_creacion" />
+                <ScalarProperty Name="fec_modificacion" ColumnName="fec_modificacion" />
+                <ScalarProperty Name="usuario_mod" ColumnName="usuario_mod" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
