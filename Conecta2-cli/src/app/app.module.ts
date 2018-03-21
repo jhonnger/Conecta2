@@ -27,7 +27,9 @@ import {MatSelectModule} from '@angular/material/select';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TipoDenunciaService} from './services/tipo-denuncia.service';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatInputModule,
     MatTabsModule,
     MatCardModule,
@@ -66,7 +69,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     }),
   ],
   providers: [
-    ChatService
+    ChatService,
+    TipoDenunciaService
   ],
   bootstrap: [AppComponent]
 })

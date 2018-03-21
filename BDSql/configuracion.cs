@@ -11,9 +11,11 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class configuracion
     {
+        [Key]
         public int id_configuracion { get; set; }
         public string color_primario { get; set; }
         public int campos_reporte { get; set; }

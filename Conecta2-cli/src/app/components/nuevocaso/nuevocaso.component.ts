@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {TipoDenunciaService} from '../../services/tipo-denuncia.service';
+import {TipoDenuncia} from '../../interfaces/TipoDenuncia';
 
 @Component({
   selector: 'app-nuevocaso',
@@ -10,11 +12,20 @@ export class NuevocasoComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  tipoDenuncia: TipoDenuncia[] = [];
+  lat = 40.7786232;
+  lng = -74.0007019;
   date = new FormControl(new Date());
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,
+              private _tipoDenunciaService: TipoDenunciaService) { }
 
   ngOnInit() {
+    this._tipoDenunciaService.listar().subscribe(
+      data => {
+        this.tipoDenuncia = JSON.parse(JSON.stringify(data));
+      }
+    );
     this.firstFormGroup = this._formBuilder.group({
       tipoIncidente: ['', Validators.required],
       horaIncidente: ['', Validators.required]

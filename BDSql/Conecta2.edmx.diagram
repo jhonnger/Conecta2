@@ -4,31 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="63c5e391cebb425392b40e42e6e49abe" Name="Diagram1">
-        <EntityTypeShape EntityType="conectaDBModel.comi_muni" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.comi_muni_membresia" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.configuracion" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.denuncia" Width="1.5" PointX="11.25" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.estado_denuncia" Width="1.5" PointX="9" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.jurisdiccion" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.membresia" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.pago" Width="1.5" PointX="10.5" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.patrullero" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.permiso" Width="1.5" PointX="1.5" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.persona" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.punto_sector" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.rol" Width="1.5" PointX="1.5" PointY="3.875" IsExpanded="true" />
+      <Diagram DiagramId="d85c98730c9242199b14b11b1faedb87" Name="Diagram1">
+        <EntityTypeShape EntityType="conectaDBModel.comi_muni" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.comi_muni_membresia" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.configuracion" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.denuncia" Width="1.5" PointX="8.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.estado_denuncia" Width="1.5" PointX="6" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.jurisdiccion" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.membresia" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.pago" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.patrullero" Width="1.5" PointX="8.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.permiso" Width="1.5" PointX="1.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.persona" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.punto_sector" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.rol" Width="1.5" PointX="1.5" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="conectaDBModel.rol_permiso" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.seccion" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.tipo_denuncia" Width="1.5" PointX="9" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.seccion" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.sub_seccion" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.tipo_denuncia" Width="1.5" PointX="6" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.tipo_muni" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="conectaDBModel.tipo_usuario" Width="1.5" PointX="3.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.ubicacion" Width="1.5" PointX="9" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="conectaDBModel.usuario" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.ubicacion" Width="1.5" PointX="6" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.usuario" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="conectaDBModel.usuario_muni" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
         <AssociationConnector Association="conectaDBModel.FK_comi_muni_jurisdiccion" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_comi_muni_membresia_comi_muni" ManuallyRouted="false" />
-        <AssociationConnector Association="conectaDBModel.FK_comi_muni_persona" ManuallyRouted="false" />
+        <AssociationConnector Association="conectaDBModel.FK_comi_muni_tipo_muni" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_configuracion_comi_muni" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_patrullero_comi_muni" ManuallyRouted="false" />
+        <AssociationConnector Association="conectaDBModel.FK_usuario_muni_comi_muni" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_comi_muni_membresia_membresia" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_pago_comi_muni_membresia" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_denuncia_estado_denuncia" ManuallyRouted="false" />
@@ -43,7 +47,9 @@
         <AssociationConnector Association="conectaDBModel.FK_usuario_persona" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_rol_permiso_rol" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_tipo_usuario_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="conectaDBModel.FK_sub_seccion_seccion" ManuallyRouted="false" />
         <AssociationConnector Association="conectaDBModel.FK_usuario_tipo_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="conectaDBModel.FK_usuario_muni_usuario" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

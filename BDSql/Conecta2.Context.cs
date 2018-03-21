@@ -40,9 +40,12 @@ namespace BDSql
         public virtual DbSet<rol> rol { get; set; }
         public virtual DbSet<rol_permiso> rol_permiso { get; set; }
         public virtual DbSet<seccion> seccion { get; set; }
+        public virtual DbSet<sub_seccion> sub_seccion { get; set; }
         public virtual DbSet<tipo_denuncia> tipo_denuncia { get; set; }
+        public virtual DbSet<tipo_muni> tipo_muni { get; set; }
         public virtual DbSet<tipo_usuario> tipo_usuario { get; set; }
         public virtual DbSet<ubicacion> ubicacion { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
+        public virtual DbSet<usuario_muni> usuario_muni { get; set; }
     }
 }

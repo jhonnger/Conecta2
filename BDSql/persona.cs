@@ -11,17 +11,18 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class persona
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public persona()
         {
-            this.comi_muni = new HashSet<comi_muni>();
             this.patrullero = new HashSet<patrullero>();
             this.usuario = new HashSet<usuario>();
         }
-    
+
+        [Key]
         public int id_persona { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
@@ -30,8 +31,6 @@ namespace BDSql
         public System.DateTime fec_modificacion { get; set; }
         public string usuario_mod { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<comi_muni> comi_muni { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<patrullero> patrullero { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

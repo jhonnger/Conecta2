@@ -11,7 +11,8 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class permiso
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace BDSql
         {
             this.rol_permiso = new HashSet<rol_permiso>();
         }
-    
+
+        [Key]
         public int id_permiso { get; set; }
         public string descripcion { get; set; }
     

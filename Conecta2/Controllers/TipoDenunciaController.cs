@@ -2,119 +2,104 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
-using System.Web;
-using System.Web.Mvc;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Description;
 using BDSql;
 
 namespace Conecta2.Controllers
 {
-    public class TipoDenunciaController : Controller
+    public class TipoDenunciaController : ApiController
     {
         private conectaDBEntities db = new conectaDBEntities();
 
-        // GET: TipoDenuncia
-        public async Task<JsonResult> Index()
+        // GET: api/TipoDenuncia
+        public IQueryable<BDSqltipo_denuncia> Gettipo_denuncia()
         {
-            return Json(await db.tipo_denuncia.ToListAsync());
+            return (db.tipo_denuncia);
         }
 
-        // GET: TipoDenuncia/Details/5
-        public async Task<JsonResult> Details(int? id)
+        // GET: api/TipoDenuncia/5
+        [ResponseType(typeof(tipo_denuncia))]
+        public async Task<IHttpActionResult> Gettipo_denuncia(int id)
         {
-            return Json(await db.tipo_denuncia.ToListAsync());
-            /**if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             tipo_denuncia tipo_denuncia = await db.tipo_denuncia.FindAsync(id);
             if (tipo_denuncia == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            return View(tipo_denuncia); **/
+
+            return Ok(tipo_denuncia);
         }
 
-        // GET: TipoDenuncia/Create
-        public ActionResult Create()
+        // PUT: api/TipoDenuncia/5
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> Puttipo_denuncia(int id, tipo_denuncia tipo_denuncia)
         {
-            return View();
-        }
-
-        // POST: TipoDenuncia/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id_tipo_denuncia,nombre,descripcion,usuario_mod,fec_creacion,fecha_modificacion,estado")] tipo_denuncia tipo_denuncia)
-        {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.tipo_denuncia.Add(tipo_denuncia);
+                return BadRequest(ModelState);
+            }
+
+            if (id != tipo_denuncia.id_tipo_denuncia)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(tipo_denuncia).State = EntityState.Modified;
+
+            try
+            {
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!tipo_denunciaExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            return View(tipo_denuncia);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // GET: TipoDenuncia/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        // POST: api/TipoDenuncia
+        [ResponseType(typeof(tipo_denuncia))]
+        public async Task<IHttpActionResult> Posttipo_denuncia(tipo_denuncia tipo_denuncia)
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequest(ModelState);
             }
+
+            db.tipo_denuncia.Add(tipo_denuncia);
+            await db.SaveChangesAsync();
+
+            return CreatedAtRoute("DefaultApi", new { id = tipo_denuncia.id_tipo_denuncia }, tipo_denuncia);
+        }
+
+        // DELETE: api/TipoDenuncia/5
+        [ResponseType(typeof(tipo_denuncia))]
+        public async Task<IHttpActionResult> Deletetipo_denuncia(int id)
+        {
             tipo_denuncia tipo_denuncia = await db.tipo_denuncia.FindAsync(id);
             if (tipo_denuncia == null)
             {
-                return HttpNotFound();
+                return NotFound();
             }
-            return View(tipo_denuncia);
-        }
 
-        // POST: TipoDenuncia/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id_tipo_denuncia,nombre,descripcion,usuario_mod,fec_creacion,fecha_modificacion,estado")] tipo_denuncia tipo_denuncia)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(tipo_denuncia).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            return View(tipo_denuncia);
-        }
-
-        // GET: TipoDenuncia/Delete/5
-        public async Task<ActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tipo_denuncia tipo_denuncia = await db.tipo_denuncia.FindAsync(id);
-            if (tipo_denuncia == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tipo_denuncia);
-        }
-
-        // POST: TipoDenuncia/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
-        {
-            tipo_denuncia tipo_denuncia = await db.tipo_denuncia.FindAsync(id);
             db.tipo_denuncia.Remove(tipo_denuncia);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+
+            return Ok(tipo_denuncia);
         }
 
         protected override void Dispose(bool disposing)
@@ -124,6 +109,11 @@ namespace Conecta2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool tipo_denunciaExists(int id)
+        {
+            return db.tipo_denuncia.Count(e => e.id_tipo_denuncia == id) > 0;
         }
     }
 }

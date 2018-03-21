@@ -11,7 +11,8 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ubicacion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +21,8 @@ namespace BDSql
             this.denuncia = new HashSet<denuncia>();
             this.denuncia1 = new HashSet<denuncia>();
         }
-    
+
+        [Key]
         public int id_ubicacion { get; set; }
         public decimal latitud { get; set; }
         public decimal longitud { get; set; }

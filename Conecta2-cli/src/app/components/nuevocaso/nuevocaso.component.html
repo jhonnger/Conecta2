@@ -6,8 +6,7 @@
         <ng-template matStepLabel>General</ng-template>
         <mat-form-field class="full-width">
           <mat-select formControlName="tipoIncidente" placeholder="Tipo de incidente">
-            <mat-option value="option">Robo</mat-option>
-            <mat-option value="option">Hurto</mat-option>
+            <mat-option  *ngFor='let tipo of tipoDenuncia'  value="tipo.id_tipo_denuncia">{{tipo.nombre}}</mat-option>
           </mat-select>
           <mat-error>Debe elegir un tipo de incidente</mat-error>
         </mat-form-field>
@@ -19,7 +18,6 @@
         <mat-form-field class="full-width">
           <input matInput
                  [matDatepicker]="picker"
-                 formControlName="fechaIncidente"
                  [value]="date.value"
                  [max]="date.value"
                  placeholder="Fecha de incidente">
@@ -35,12 +33,11 @@
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Ubicacion</ng-template>
-        <mat-form-field>
-          <mat-select placeholder="Tipo de incidente">
-            <mat-option value="option">Robo</mat-option>
-            <mat-option value="option">Hurto</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div class="mapa-nuevo-caso">
+          <agm-map  #mapUnidades [zoom]="13" [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>

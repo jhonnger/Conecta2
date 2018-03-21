@@ -11,7 +11,8 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class membresia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace BDSql
         {
             this.comi_muni_membresia = new HashSet<comi_muni_membresia>();
         }
-    
+
+        [Key]
         public int id_membresia { get; set; }
         public string descripcion { get; set; }
         public int cant_usuarios { get; set; }

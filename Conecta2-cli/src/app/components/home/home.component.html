@@ -1,14 +1,14 @@
 <div>
   <mat-tab-group (selectedTabChange)="cambio($event)" class="demo-tab-group">
     <mat-tab  label="Monitoreo">
-      <div class="demo-tab-content">
+      <div class="home-map">
         <agm-map #mapMonitoreo [zoom]="13" [latitude]="lat" [longitude]="lng">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
         </agm-map>
       </div>
     </mat-tab>
     <mat-tab label="Unidades">
-      <div class="demo-tab-content">
+      <div class="home-map">
         <agm-map  #mapUnidades [zoom]="13" [latitude]="lat" [longitude]="lng">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
         </agm-map>

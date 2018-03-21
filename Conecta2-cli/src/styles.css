@@ -7,8 +7,11 @@ body {
     padding: 0;
 }
 
-agm-map {
+.home-map agm-map {
     height: 700px;
+}
+.mapa-nuevo-caso agm-map {
+    height: 300px;
 }
 .text-center{
   text-align: center;

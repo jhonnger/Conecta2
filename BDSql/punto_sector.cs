@@ -11,9 +11,11 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class punto_sector
     {
+        [Key]
         public int id_punto_jurisdiccion { get; set; }
         public int id_jurisdiccion { get; set; }
         public decimal longitud { get; set; }

@@ -111,7 +111,13 @@
     <Compile Include="seccion.cs">
       <DependentUpon>Conecta2.tt</DependentUpon>
     </Compile>
+    <Compile Include="sub_seccion.cs">
+      <DependentUpon>Conecta2.tt</DependentUpon>
+    </Compile>
     <Compile Include="tipo_denuncia.cs">
+      <DependentUpon>Conecta2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tipo_muni.cs">
       <DependentUpon>Conecta2.tt</DependentUpon>
     </Compile>
     <Compile Include="tipo_usuario.cs">
@@ -123,34 +129,37 @@
     <Compile Include="usuario.cs">
       <DependentUpon>Conecta2.tt</DependentUpon>
     </Compile>
+    <Compile Include="usuario_muni.cs">
+      <DependentUpon>Conecta2.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="Conecta2.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Conecta2.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="Conecta2.edmx.diagram">
       <DependentUpon>Conecta2.edmx</DependentUpon>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Conecta2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Conecta2.Context.cs</LastGenOutput>
       <DependentUpon>Conecta2.edmx</DependentUpon>
+      <LastGenOutput>Conecta2.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Conecta2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Conecta2.edmx</DependentUpon>
       <LastGenOutput>Conecta2.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

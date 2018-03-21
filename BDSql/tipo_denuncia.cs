@@ -11,7 +11,8 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tipo_denuncia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace BDSql
         {
             this.denuncia = new HashSet<denuncia>();
         }
-    
+
+        [Key]
         public int id_tipo_denuncia { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }

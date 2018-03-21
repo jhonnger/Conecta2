@@ -11,7 +11,8 @@ namespace BDSql
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class comi_muni_membresia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,8 @@ namespace BDSql
         {
             this.pago = new HashSet<pago>();
         }
-    
+
+        [Key]
         public int id_comi_muni_membresia { get; set; }
         public int id_membresia { get; set; }
         public int id_comi_muni { get; set; }
